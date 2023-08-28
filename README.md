@@ -55,6 +55,4 @@ Access the JSON file from the remote server and deserialize the object to return
             Data = json_Datas;
         }
         
-Output
 
-image.png
