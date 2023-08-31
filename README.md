@@ -1,14 +1,14 @@
 # How-to-bind-remote-JSON-data-to-.NET-MAUI-SfChipGroup
 This sample explains how to bind remote JSON data to .NET MAUI ChipGroup (SfChipGroup).
 
-Steps
+**Steps**
 
-Step 1: Bind the JSON data to the ChipGroup
+**Step 1: Bind the JSON data to the ChipGroup**
 
 Bind the data from the remote JSON file in .NET MAUI ChipGroup using the ItemsSource property.
 
-XAML
-
+**[XAML]**
+```
 <chip:SfChipGroup ItemsSource="{Binding Data}"
                   ChipPadding="8,8,0,0"
                   DisplayMemberPath="ShipCity">
@@ -22,11 +22,12 @@ XAML
                             AlignItems="Start"/>
             </chip:SfChipGroup.ChipLayout>
      </chip:SfChipGroup>
+```
      
-Step 2: Access the JSON file
+**Step 2: Access the JSON file**
 
 Access the JSON file from the remote server and deserialize the object to return as a collection of models.
-
+```
         private const string Url = "https://ej2services.syncfusion.com/production/web-services/api/Orders";//This url is a free public api intended for demos
         private readonly HttpClient _client = new HttpClient();//Creating a new instance of HttpClient. (Microsoft.Net.Http)
 
@@ -54,5 +55,15 @@ Access the JSON file from the remote server and deserialize the object to return
             var json_Datas = JsonConvert.DeserializeObject<ObservableCollection<Model>>(content); //Deserializes or converts JSON String into a collection of Post
             Data = json_Datas;
         }
-        
+```
+## Project pre-requisites
 
+Make sure that you have the compatible versions of Visual Studio with .NET MAUI workloads and .NET SDK version in your machine before starting to work on this project. Refer to [System Requirements for .NET MAUI](https://help.syncfusion.com/maui/system-requirements).
+
+## How to run this application?
+
+To run this application, you need to first clone the How-to-bind-remote-JSON-data-to-.NET-MAUI-SfChipGroup repository and then open it in Visual Studio 2022. Now, simply build and run your project to view the output.
+
+## <a name="troubleshooting"></a>Troubleshooting ##
+### Path too long exception
+If you are facing path too long exception when building this example project, close Visual Studio and rename the repository to short and build the project.
